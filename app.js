@@ -1,8 +1,4 @@
-// Problem: We need a simple to look at GitHub profile
-// Solution: Use NodeJS to connect to GitHub API to
-// get profile info and print out to the console
-
-// TODO: Connect to GitHub API
+// TODO: [x] Connect to GitHub API
 let https = require('https')
 
 const options = {
@@ -15,8 +11,18 @@ const options = {
   }
 }
 
-let request = https.request(options, (result) => {
-  console.log('Got response: ', result.statusCode)
+// TODO: [x] Read the data
+let request = https.request(options, (response) => {
+  let body = ''
+  response.on('data', (data) => {
+    body = body + data
+  })
+  response.on('end', () => {
+    console.log(typeof body)
+  })
+  // TODO: Parse the data
+  // Convert String to JSON (JavaScript object)
+  // TODO: Print the data out
 })
 
 request.end()
@@ -24,7 +30,3 @@ request.end()
 request.on('error', (e) => {
   console.error(e)
 })
-
-// TODO: Read the data
-// TODO: Parse the data
-// TODO: Print the data out
