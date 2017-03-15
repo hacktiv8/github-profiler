@@ -9,4 +9,4 @@ get profile info and print out to the console
 * [x] Connect to GitHub API
 * [x] Read the data
 * [x] Parse the data
-* [ ] Print the data out
+* [x] Print the data out
